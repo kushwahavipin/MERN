@@ -1,0 +1,19 @@
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+.card p {
+    margin: 5px 0;
+}

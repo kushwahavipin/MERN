@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Number Operations</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #container {
+        margin: 50px auto;
+        width: 400px;
+    }
+    input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+
+<div id="container">
+    <h2>Number Operations</h2>
+    <input type="number" id="numberInput" placeholder="Enter a number">
+    <button onclick="performOperations()">Perform Operations</button>
+    <div id="results"></div>
+</div>
+
+<script>
+function performOperations() {
+    var number = parseInt(document.getElementById('numberInput').value);
+    var sum = 0;
+    var temp = number;
+    var isArmstrong = false;
+    var isPrime = true;
+    var factors = [];
+
+    // Calculate sum of digits
+    while (temp > 0) {
+        var digit = temp % 10;
+        sum += Math.pow(digit, 3);
+        temp = Math.floor(temp / 10);
+    }
+
+    // Check if Armstrong number
+    if (sum === number) {
+        isArmstrong = true;
+    }
+
+    // Check if prime number
+    for (var i = 2; i < number; i++) {
+        if (number % i === 0) {
+            isPrime = false;
+            break;
+        }
+    }
+
+    // Find factors
+    for (var i = 1; i <= number; i++) {
+        if (number % i === 0) {
+            factors.push(i);
+        }
+    }
+
+    // Display results
+    var results = document.getElementById('results');
+    results.innerHTML = 'Number: ' + number + '<br>';
+    results.innerHTML += 'Sum of its digits: ' + sum + '<br>';
+    results.innerHTML += 'Is it an Armstrong number? ' + (isArmstrong ? 'Yes' : 'No') + '<br>';
+    results.innerHTML += 'Is it a prime number? ' + (isPrime ? 'Yes' : 'No') + '<br>';
+    results.innerHTML += 'Factors: ' + factors.join(', ');
+}
+</script>
+
+</body>
+</html>

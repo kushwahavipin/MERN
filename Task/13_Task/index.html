@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arrays and Functions Assignment</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Arrays and Functions Assignment</h2>
+    <button onclick="performOperations()">Perform Operations</button>
+    <div id="output"></div>
+</div>
+
+<script>
+    // Sample array for testing
+    const sampleArray = [4, 8, 2, 11, 6, 7, 10];
+
+    // Function to find the maximum number in the array
+    const findMax = arr => Math.max(...arr);
+
+    // Function to calculate the sum of all elements in the array
+    const calculateSum = function(arr) {
+        return arr.reduce((acc, curr) => acc + curr, 0);
+    };
+
+    // Function to count the number of odd numbers in the array
+    function countOddNumbers(arr) {
+        return arr.filter(num => num % 2 !== 0).length;
+    }
+
+    // Function to perform all operations and display results
+    function performOperations() {
+        const maxNumber = findMax(sampleArray);
+        const sum = calculateSum(sampleArray);
+        const oddCount = countOddNumbers(sampleArray);
+
+        const outputDiv = document.getElementById('output');
+        outputDiv.innerHTML = `
+            <p>Array: [${sampleArray.join(', ')}]</p>
+            <p>Maximum number: ${maxNumber}</p>
+            <p>Sum of all elements: ${sum}</p>
+            <p>Count of odd numbers: ${oddCount}</p>
+        `;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.content{
+    margin: 10vh 25vw;
+}
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+.btn{
+    text-align: center;
+    background: linear-gradient(90deg, rgba(203,215,4,1) 25%, rgba(28,233,16,1) 100%);
+    margin: 0 auto;
+    width: 100%;
+    font-size: 4vh;
+    height: 5vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    transition: all .09s ease-in .09s;
+}
+.btn:hover{
+    color: black;
+    background: linear-gradient(90deg, rgba(28,233,16,1) 0%, rgba(203,215,4,1) 68%);
+}

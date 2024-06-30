@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Promise-based Divide Function</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  h1 {
+    text-align: center;
+  }
+  .container {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+  .result {
+    margin-top: 20px;
+  }
+  .error {
+    color: red;
+  }
+</style>
+</head>
+<body>
+  <h1>Promise-based Divide Function</h1>
+  <div class="container">
+    <input type="number" id="numerator" placeholder="Enter numerator">
+    <input type="number" id="denominator" placeholder="Enter denominator">
+    <button onclick="divide()">Divide</button>
+    <div class="result" id="result"></div>
+  </div>
+
+<script>
+  const divide = () => {
+    const numerator = parseFloat(document.getElementById('numerator').value);
+    const denominator = parseFloat(document.getElementById('denominator').value);
+
+    const divisionPromise = new Promise((resolve, reject) => {
+      if (denominator === 0) {
+        reject("Division by zero is not allowed.");
+      } else {
+        resolve(numerator / denominator);
+      }
+    });
+
+    divisionPromise.then(result => {
+      document.getElementById('result').innerHTML = `Result: ${result}`;
+    }).catch(error => {
+      document.getElementById('result').innerHTML = `<span class="error">Error: ${error}</span>`;
+    });
+  };
+</script>
+</body>
+</html>

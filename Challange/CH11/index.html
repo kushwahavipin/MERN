@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<style type="text/css">
+		:root {
+
+    --color-dark: #1C1D20;
+    --color-blue: #455CE9;
+    
+    --color-border: rgba(28, 29, 32, 0.175);
+  
+    --gap-padding: clamp(1.5em, 4vw, 2.5em); 
+}
+
+
+/* ---------------- Buttons ------------------- */
+
+.btn {
+    position: relative;
+    z-index: 5;
+    border: 0;
+    outline: 0;
+   font-family: Roboto, sans-serif;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.btn:hover {
+    z-index: 15;
+}
+
+
+
+.btn-click {
+	cursor: pointer;
+	border: 0;
+	color: red;
+	background: transparent;
+	border-radius: 2.125em;
+	min-width: 1em;
+	height: 2.25em;
+	padding: 0;
+	font-size: 1em;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    position: relative;
+    text-decoration: none;
+    will-change: transform;
+    outline: 0;
+    transform: translateZ(0) rotate(0.001deg);
+}
+
+.btn-click:hover {
+    cursor: pointer;
+}
+
+.btn-normal .btn-click {
+  padding:10px 15px;
+    -webkit-box-shadow: inset 0px 0px 0px 1px var(--color-border); 
+    box-shadow: inset 0px 0px 0px 1px var(--color-border);
+}
+
+.btn-fill {
+    background: var(--color-blue);
+	position: absolute;
+	width: 150%;
+	height: 200%;
+	border-radius: 50%;
+	top: -50%;
+	left: -25%;
+	transform: translate3d(0,-76%,0);
+    will-change: transform;
+    transition: background-color ease-in-out .25s;
+}
+
+.btn-text {
+    display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+    padding: 0 .75em;
+    z-index: 2;
+    color: var(--color-dark);
+    position: relative;
+    transform: rotate(0.001deg);
+    pointer-events: none;
+    will-change: transform, color;
+}
+
+.btn-click:hover {
+    text-decoration: none;
+}
+
+.design-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 1rem;
+}
+	</style>
+</head>
+<body>
+
+<div class="design-button">
+  <div class="btn btn-normal">
+	<a href="#" class="btn-click magnetic" data-strength="25" data-strength-text="15">
+		<div class="btn-fill"></div> 
+		<span class="btn-text">
+            <span class="btn-text-inner change">All</span> 
+        </span>
+	</a>
+</div>
+  <div class="btn btn-normal">
+	<a href="#" class="btn-click magnetic" data-strength="25" data-strength-text="15">
+		<div class="btn-fill"></div> 
+		<span class="btn-text">
+            <span class="btn-text-inner change">Design Button</span> 
+        </span>
+	</a>
+</div>
+</div>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+	<script type="text/javascript">
+		/**
+* Magnetic Buttons
+*/
+function initMagneticButtons() {
+    
+  // Magnetic Buttons
+  // Found via: https://codepen.io/tdesero/pen/RmoxQg
+  var magnets = document.querySelectorAll('.magnetic');
+  var strength = 100;
+  
+  // START : If screen is bigger as 540 px do magnetic
+  if(window.innerWidth > 540){
+  // Mouse Reset
+  magnets.forEach( (magnet) => {
+    magnet.addEventListener('mousemove', moveMagnet );
+    magnet.addEventListener('mouseleave', function(event) {
+        gsap.to( event.currentTarget, 1.5, {
+          x: 0, 
+          y: 0, 
+          ease: Elastic.easeOut
+        });
+        gsap.to( $(this).find(".btn-text"), 1.5, {
+          x: 0, 
+          y: 0, 
+          ease: Elastic.easeOut
+        });
+    });
+  });
+
+  // Mouse move
+  function moveMagnet(event) {
+    var magnetButton = event.currentTarget;
+    var bounding = magnetButton.getBoundingClientRect();
+    var magnetsStrength = magnetButton.getAttribute("data-strength");
+    var magnetsStrengthText = magnetButton.getAttribute("data-strength-text");
+      
+    gsap.to( magnetButton, 1.5, {
+        x: ((( event.clientX - bounding.left)/magnetButton.offsetWidth) - 0.5) * magnetsStrength,
+        y: ((( event.clientY - bounding.top)/magnetButton.offsetHeight) - 0.5) * magnetsStrength,
+        rotate: "0.001deg",
+        ease: Power4.easeOut
+    });
+    gsap.to( $(this).find(".btn-text"), 1.5, {
+        x: ((( event.clientX - bounding.left)/magnetButton.offsetWidth) - 0.5) * magnetsStrengthText,
+        y: ((( event.clientY - bounding.top)/magnetButton.offsetHeight) - 0.5) * magnetsStrengthText,
+        rotate: "0.001deg",
+        ease: Power4.easeOut
+    });
+  }
+
+  }; // END : If screen is bigger as 540 px do magnetic
+
+  // Mouse Enter
+  $('.btn-click.magnetic').on('mouseenter', function() {
+    if($(this).find(".btn-fill").length) {
+    gsap.to($(this).find(".btn-fill"), .6, {
+        startAt: {y: "76%"},
+        y: "0%",
+        ease: Power2.easeInOut
+    });
+    }
+    if($(this).find(".btn-text-inner.change").length) {
+    gsap.to($(this).find(".btn-text-inner.change"), .3, {
+        startAt: {color: "#1C1D20"},
+        color: "#FFFFFF",
+        ease: Power3.easeIn,
+    });
+    }
+  });
+
+  // Mouse Leave
+  $('.btn-click.magnetic').on('mouseleave', function() {
+    if($(this).find(".btn-fill").length) {
+    gsap.to($(this).find(".btn-fill"), .6, {
+        y: "-76%",
+        ease: Power2.easeInOut
+    });
+    }
+    if($(this).find(".btn-text-inner.change").length) {
+    gsap.to($(this).find(".btn-text-inner.change"), .3, {
+        color: "#1C1D20",
+        ease: Power3.easeOut,
+        delay: .3
+    });
+    }
+  });
+}
+initMagneticButtons();
+
+
+
+
+	</script>
+
+</body>
+</html>

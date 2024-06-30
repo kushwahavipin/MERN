@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  li{
+    display: inline-block;
+  }
+  .all {
+    background-color: #fff;
+    height: 90vh;
+  }
+  .logo{
+    display: flex;
+    align-items: center;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5vh 2vw 1vh 1vw;
+  }
+  .navi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .username {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .username button{
+    font-size: 1.2rem;
+    padding: 1rem;
+    background-image: radial-gradient(white ,rgb(87, 145, 225));
+    border-radius: 40px;
+  }
+  .navi a {
+    text-decoration: none;
+    padding: 0 1.5vw;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    color: gray;
+    border-radius: 4px;
+  }
+  .navi a.active,a:hover {
+    background-color: rgb(87, 145, 225);
+    color: whitesmoke;
+    transition: .5s;
+  }
+  .checkbtn{
+    font-size: 30px;
+    cursor: pointer;
+   display: none;
+  }
+  #check{
+    display: none;
+  }
+  main{
+    display: flex;
+    padding: 2vh 5vw;
+   background-color: fff;
+  
+  }
+  .pic img {
+    width: 35vw;
+  }
+  .content span{
+    color: rgb(87, 145, 225);
+  }
+  .content h1{
+    font-size: 3rem;
+    padding-left: 5px;
+    line-height: 3.5rem;
+  }
+  .content p{
+    font-size: 2rem;
+    padding-top: 2vh;
+    line-height: 2.5rem;
+    
+  }
+  .content button {
+    background: linear-gradient(180deg, #fdc50f 26.71%, #fb982f 99.36%);
+    box-shadow: 0px 20px 24px 3px rgba(251, 161, 40, 0.42);
+    border-radius: 34px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 11px 26px 11px 26px;
+    
+  }
+  .content .book{
+    text-align: center;
+    margin-top: 2vh;
+  }
+  .content{
+      padding: 1rem 7rem;
+  }
+  .book button:hover{
+    margin-top: 2.2rem;
+    transform: rotate(10deg);
+    transform: translateY(5rem);
+    transform: scale(125%,125%);
+    transition-duration: 1s;
+    
+  }
+  .book:hover{
+    transform: rotate(-10deg);
+  }
+  .pic img:hover{
+    animation: animate2 1.5s ease-in-out;
+  }
+  
+  @keyframes animate2{
+    0%{
+        transform: translate(0,0) scale(75%,75%) ;
+    }
+    20%{
+        transform: translate(-1rem,-1rem) scale(75%,75%);
+    }
+    40%{
+        transform: translate(-1rem,1rem) scale(75%,75%);
+    }
+    60%{
+        transform: translate(1rem,1rem) scale(75%,75%);
+    }
+    80%{
+        transform: translate(1rem,-1rem) scale(75%,75%);
+    }
+    100%{
+        transform: translate(0,0 ) scale(100%,100%);
+    }
+  }
+  
+  
+  @media screen and (min-width: 250px) and (max-width: 767px){
+    main {
+        display: flex;
+        flex-flow: column wrap;
+    }
+    .logo{
+        display: flex;
+        align-items: center;
+    }
+    .logo h1{
+        font-size: 1.2rem;
+    }
+   
+    .logo img {
+        width: 14vw;
+    }
+    .content{
+        padding: 0;
+    }
+    .content h1{
+        font-size: 2rem;
+        line-height: 2.5rem;
+    }
+    .content p{
+        font-size: 1rem;
+        line-height: 1.5rem;
+        margin-bottom: 2rem;
+        margin-top: 1.3rem;
+    }
+    .username button{
+        font-size: .7rem;
+        padding: 0.5rem;
+    }
+    .pic{
+        display: flex;
+        justify-content: center;
+    }
+    .book button{
+        font-size: 1rem;
+        padding: .2rem ;
+    }
+    .pic img{
+        width: 13rem;
+        margin-top: 2rem;
+    }
+    .checkbtn{
+        display: block;
+    }
+    ul{
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        left: -100vw;
+        position: fixed;
+        top: 6vh;
+        height: 95vh;
+        width: 100vw;
+        background: rgb(42, 35, 35);
+        color: white;
+        transition: all .5s;
+    }
+    #check:checked ~ ul{
+        left: 0;
+    }
+    ul li{
+        padding-bottom: 5vh;
+    }
+    
+  }
+  
+  
+  @media screen and (min-width:768px) and (max-width: 1200px){
+    .logo h1{
+        font-size: 1.5rem;
+        
+    }
+    .logo{
+        display: flex;
+        align-items: center;
+    }
+    .pic{
+        display: flex;
+        align-items: center;
+    }
+    .content{
+        padding: 10px;
+    }
+  }

@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Greeting App</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        margin-bottom: 20px;
+    }
+    .container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    .box {
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        font-size: 20px;
+        margin: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    /*#red { background-color: red; }
+    #blue { background-color: blue; }
+    #green { background-color: green; }
+    #yellow { background-color: yellow; }*/
+    #greetBtn {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<header id="greetingHeader">Hello</header>
+
+<div class="container">
+    <div id="red" class="box" onclick="changeColor(this)">Red</div>
+    <div id="blue" class="box" onclick="changeColor(this)">Blue</div>
+    <div id="green" class="box" onclick="changeColor(this)">Green</div>
+    <div id="yellow" class="box" onclick="changeColor(this)">Yellow</div>
+</div>
+
+<input type="text" id="nameInput" placeholder="Enter your name">
+<button id="greetBtn" onclick="changeGreeting()">Greet</button>
+
+<script>
+    function changeGreeting() {
+        var name = document.getElementById('nameInput').value;
+        var greetingHeader = document.getElementById('greetingHeader');
+        greetingHeader.textContent = "Hello, " + name;
+    }
+
+    function changeColor(element) {
+        var color = element.id;
+        element.style.backgroundColor = color;
+    }
+</script>
+
+</body>
+</html>
