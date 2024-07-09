@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-
 import {
   getCartTotal,
   removeItem,
@@ -86,7 +85,7 @@ const CartPage = () => {
                               className="form-control"
                               onChange={() => null}
                             />
-                             <label className="form-label" for="form1" style={{padding:"5px"}}>
+                             <label className="form-label" for="form1" style={{paddingLeft:"10px"}}>
                               Quantity
                             </label>
                           </div>
@@ -136,7 +135,6 @@ const CartPage = () => {
                   <button
                     type="button"
                     className="btn btn-primary btn-lg btn-block"
-                
                   >
                     Go to checkout
                   </button>
