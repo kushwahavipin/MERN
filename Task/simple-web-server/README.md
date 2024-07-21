@@ -1,9 +1,4 @@
 #react#
-![Screenshot (118)](https://github.com/user-attachments/assets/c145850f-4796-4d9f-9989-d18d50d7b55e)
-![Screenshot (117)](https://github.com/user-attachments/assets/3d5dad47-4934-4186-bdc0-c643a60f896b)
-![Screenshot (116)](https://github.com/user-attachments/assets/0c411ecf-af1c-4f09-abe9-3e650a256449)
-![Screenshot (119)](https://github.com/user-attachments/assets/c69c06d4-12b0-47b2-b850-efd940f25e3f)
-
 <a href="https://github.com/user-attachments/assets/c145850f-4796-4d9f-9989-d18d50d7b55e">
   <img src="https://github.com/user-attachments/assets/c145850f-4796-4d9f-9989-d18d50d7b55e" alt="Screenshot (118)">
 </a>
